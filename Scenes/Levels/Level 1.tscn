@@ -1,18 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1gqvxb6rypxq"]
+[gd_scene load_steps=14 format=3 uid="uid://b1gqvxb6rypxq"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/level 1.gd" id="1_j8xq7"]
 [ext_resource type="PackedScene" uid="uid://c75s2m6eic1vo" path="res://Scenes/Player/Player.tscn" id="2_xoa1m"]
 [ext_resource type="MeshLibrary" uid="uid://fq6she2myh7e" path="res://Scenes/Levels/Library.tres" id="3_a6omd"]
+[ext_resource type="PackedScene" uid="uid://u6rsr1posklm" path="res://Scenes/Shop/mage_npc.tscn" id="7_ameaq"]
 [ext_resource type="PackedScene" uid="uid://dle7ng6ysu2oq" path="res://Scenes/complete_level.tscn" id="10_jptnb"]
 [ext_resource type="PackedScene" uid="uid://kusf7wrf55dw" path="res://Scenes/Objects/Torch.tscn" id="11_i8kn3"]
-[ext_resource type="PackedScene" uid="uid://b6g8tcdaabtph" path="res://Scenes/Monsters/Zombie.tscn" id="12_vhniw"]
 [ext_resource type="PackedScene" uid="uid://cm4qspbr3blpd" path="res://Scenes/Player/GUI/game_over_overlay.tscn" id="13_odunc"]
 [ext_resource type="PackedScene" uid="uid://dxnakdkshmjf3" path="res://Scenes/Player/GUI/GUI.tscn" id="14_boby3"]
 [ext_resource type="PackedScene" uid="uid://bhmnasfjlgih2" path="res://Scenes/Objects/Item_object.tscn" id="15_6pfin"]
 [ext_resource type="PackedScene" uid="uid://k5iodkm5vt48" path="res://Scenes/Objects/Portals/Portal 4.tscn" id="15_8qnfm"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_x1wyp"]
-size = Vector3(22.3858, 1, 25.5135)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8iccp"]
 
@@ -23,6 +20,8 @@ sky_material = SubResource("ProceduralSkyMaterial_8iccp")
 background_mode = 1
 background_color = Color(0.215686, 0.203922, 0.211765, 1)
 sky = SubResource("Sky_434eu")
+ssr_enabled = true
+ssao_enabled = true
 glow_enabled = true
 glow_intensity = 0.4
 glow_strength = 1.24
@@ -43,12 +42,9 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 2, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.9147, 0)
+[node name="Game Over Overlay" parent="." instance=ExtResource("13_odunc")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.799225, 0, -6.15533)
-shape = SubResource("BoxShape3D_x1wyp")
+[node name="GUI" parent="." instance=ExtResource("14_boby3")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1jnpn")
@@ -82,15 +78,10 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.24
 [node name="Fire8" parent="Objects" instance=ExtResource("11_i8kn3")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.2494, 3.40291, -31.13)
 
+[node name="Mage NPC" parent="Objects" instance=ExtResource("7_ameaq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148863, 1.02246, -37.4433)
+
 [node name="Monsters" type="Node3D" parent="."]
-
-[node name="Zombie AI" parent="Monsters" node_paths=PackedStringArray("player") instance=ExtResource("12_vhniw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2664, 1.02246, -34.4432)
-player = NodePath("../../Player")
-
-[node name="Game Over Overlay" parent="." instance=ExtResource("13_odunc")]
-
-[node name="GUI" parent="." instance=ExtResource("14_boby3")]
 
 [node name="Items" type="Node3D" parent="."]
 
@@ -100,3 +91,5 @@ player = NodePath("../../Player")
 transform = Transform3D(0.0424337, 0, -0.999099, 0, 1, 0, 0.999099, 0, 0.0424337, -46.8415, 7.12408, 8.27683)
 
 [node name="CompleteLevel" parent="Portal" instance=ExtResource("10_jptnb")]
+
+[node name="Projectiles" type="Node" parent="."]

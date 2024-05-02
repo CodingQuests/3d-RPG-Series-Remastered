@@ -3,7 +3,7 @@ extends Node
 var items = {
 	"default": preload("res://Scenes/Player/GUI/Inventory/resources/default_sword.tres"),
 	"sword": preload("res://Scenes/Player/GUI/Inventory/resources/sword.tres"),
-	"potion": preload("res://Scenes/Player/GUI/Inventory/resources/small_potion.tres"),
+	"small potion": preload("res://Scenes/Player/GUI/Inventory/resources/small_potion.tres"),
 }
 var right_hand_equipped: ItemData = items["default"]
 

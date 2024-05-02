@@ -7,7 +7,6 @@ func _ready():
 	
 func _physics_process(delta):
 	if Input.is_action_just_pressed("Pause"):
-		
 		get_tree().paused = !get_tree().paused
 		$Container.visible = get_tree().paused
 		match get_tree().paused:

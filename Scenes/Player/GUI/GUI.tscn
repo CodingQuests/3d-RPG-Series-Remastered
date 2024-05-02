@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxnakdkshmjf3"]
+[gd_scene load_steps=7 format=3 uid="uid://dxnakdkshmjf3"]
 
 [ext_resource type="Script" path="res://Scripts/Player/GUI.gd" id="1_71x63"]
 [ext_resource type="FontFile" uid="uid://d22luwsc6fmuu" path="res://Assets/Font/PixeloidSansBold-RpeJo.ttf" id="2_3x0x1"]
 [ext_resource type="Texture2D" uid="uid://bv1k3d044twqw" path="res://Assets/ui_big_pieces.png" id="2_8opdj"]
 [ext_resource type="PackedScene" uid="uid://d4cyoim416nt3" path="res://Scenes/Player/GUI/Inventory/Inventory.tscn" id="4_ds1yi"]
 [ext_resource type="PackedScene" path="res://Scenes/Player/GUI/profile.tscn" id="5_ofeb3"]
+[ext_resource type="PackedScene" uid="uid://m8xjjb0e3g1t" path="res://Scenes/Shop.tscn" id="6_0uiwo"]
 
 [node name="GUI" type="CanvasLayer"]
 process_mode = 3
@@ -64,6 +65,9 @@ layout_mode = 1
 offset_right = 280.0
 
 [node name="Profile" parent="Container" instance=ExtResource("5_ofeb3")]
+visible = false
+
+[node name="Shop" parent="." instance=ExtResource("6_0uiwo")]
 visible = false
 
 [connection signal="pressed" from="Container/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
