@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 # Grabs the prebuilt AnimationTree 
-@onready var PlayerAnimationTree = $AnimationTree.get_path()
-@onready var animation_tree = get_node(PlayerAnimationTree)
+@onready var PlayerAnimationTree = $AnimationTree
+@onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 
 # Allows to pick your chracter's mesh from the inspector
@@ -126,7 +126,7 @@ func hit(damage):
 			playback.travel(death_node_name)
 		#Knockback
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "global_position", global_position - (direction/3), 0.2)
+		tween.tween_property(self, "global_position", global_position - (direction/1.5), 0.2)
 		
 
 

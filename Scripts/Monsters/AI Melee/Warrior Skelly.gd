@@ -68,7 +68,7 @@ func hit(Damage):
 			$StateMachine.changeState("Death")
 		#Knockback
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "global_position", global_position - (direction/3), 0.2)
+		tween.tween_property(self, "global_position", global_position - (direction/1.5), 0.2)
 	
 
 

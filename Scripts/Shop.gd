@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _on_buy_pressed() -> void:
-	get_node("../Container/Inventory").add_item(str($item_info/Name.text))
+	get_node("../Container/Inventory").add_item(str(get_node("item_info/Name").text))
 
 
 func _on_close_pressed() -> void:
