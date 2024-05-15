@@ -11,6 +11,6 @@ item_damage = 1
 item_health = 0
 item_defense = 0
 stackable = false
-count = 0
+count = 1
 description = "Swoosh!"
 item_texture = ExtResource("1_ugae4")

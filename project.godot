@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="3D RPG Remastered"
-run/main_scene="res://Scenes/Levels/Level 1.tscn"
+run/main_scene="res://Scenes/Levels/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Game="*res://Scripts/Global/Game.gd"
+Utils="*res://Scripts/Global/Utils.gd"
 
 [display]
 

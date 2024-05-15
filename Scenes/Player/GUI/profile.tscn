@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dihus2c0b17hi"]
+[gd_scene load_steps=2 format=3 uid="uid://bm2f0i7xv1t60"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Profile.gd" id="1_asu7y"]
 
@@ -13,3 +13,5 @@ offset_left = 560.0
 offset_top = 232.0
 offset_right = 600.0
 offset_bottom = 243.0
+theme_override_font_sizes/font_size = 24
+text = "adsfasdasdasdasd"

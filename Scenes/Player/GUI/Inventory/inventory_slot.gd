@@ -55,7 +55,8 @@ func _gui_input(event):
 			if get_child_count() > 0:
 				if (get_child(0).data.type == ItemData.Type.MISC):
 					#use misc item
-					Game.player_health += get_child(0).data.item_health
+					Game.heal_player(get_child(0).data.item_health)
+					#Game.player_health += get_child(0).data.item_health
 					if Game.player_health > Game.player_max_health:
 						Game.player_health = Game.player_max_health
 					get_child(0).data.count -= 1

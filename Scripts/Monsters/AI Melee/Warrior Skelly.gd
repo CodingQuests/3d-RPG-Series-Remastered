@@ -44,13 +44,9 @@ func _on_animation_tree_animation_finished(anim_name):
 		Attacking = false
 		$StateMachine.changeState("Run")
 	elif anim_name == "Death_A":
-		var rng = randi_range(2,5)
-		for i in range(rng):
-			var item_temp = item_scene.instantiate()
-			item_temp.global_position = self.global_position
-			get_node("../../Items").add_child(item_temp)
-		self.queue_free()
-	
+		death()
+		
+		
 func _on_attack_player_detection_body_entered(body):
 	if body.is_in_group("player") and !dying:
 		$StateMachine.changeState("Attack")
@@ -81,4 +77,11 @@ func _on_damage_body_entered(body):
 func _on_just_hit_timeout():
 	just_hit = false
 
-
+func death():
+	var rng = randi_range(2,5)
+	for i in range(rng):
+		var item_temp = item_scene.instantiate()
+		item_temp.global_position = self.global_position
+		get_node("../../Items").add_child(item_temp)
+	self.queue_free()
+	Game.gain_exp(100)

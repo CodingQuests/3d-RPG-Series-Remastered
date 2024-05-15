@@ -83,7 +83,7 @@ func _physics_process(delta):
 						Input.get_action_strength("forward") - Input.get_action_strength("backward"))
 			direction = direction.rotated(Vector3.UP, h_rot).normalized()
 			is_walking = true
-			if Input.is_action_pressed("sprint") and $DashTimer.is_stopped() and (is_walking == true ):
+			if Input.is_action_pressed("sprint") and (is_walking == true ):
 				movement_speed = run_speed
 				is_running = true
 			else: # Walk State and speed
@@ -101,7 +101,6 @@ func _physics_process(delta):
 			horizontal_velocity = horizontal_velocity.lerp(direction.normalized() * .01 , acceleration * delta)
 		else:
 			horizontal_velocity = horizontal_velocity.lerp(direction.normalized() * movement_speed, acceleration * delta)
-
 		velocity.z = horizontal_velocity.z + vertical_velocity.z
 		velocity.x = horizontal_velocity.x + vertical_velocity.x
 		velocity.y = vertical_velocity.y
@@ -120,7 +119,9 @@ func hit(damage):
 		get_node("just_hit").start()
 		just_hit = true
 		if (damage - Game.right_hand_equipped.item_defense) > 0:
-			Game.player_health -= (damage - Game.right_hand_equipped.item_defense)
+			var damage_done = damage - Game.right_hand_equipped.item_defense
+			Game.damage_player(damage_done)
+		
 		if Game.player_health <= 0:
 			is_dying = true
 			playback.travel(death_node_name)

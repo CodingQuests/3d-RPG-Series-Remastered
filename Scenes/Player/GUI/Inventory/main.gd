@@ -14,10 +14,9 @@ func _ready() -> void:
 		var slot := InventorySlot.new()
 		slot.init(ItemData.Type.MAIN, Vector2(32, 32))
 		grid.add_child(slot)
-	add_item("sword")
-	add_item("small potion")
-	add_item("small potion")
-	add_item("small potion")
+		
+	Utils.load_game()
+
 
 func add_item(item_name: String) -> void:
 	var item = InventoryItem.new()
