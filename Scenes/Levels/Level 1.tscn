@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://b1gqvxb6rypxq"]
 
-[ext_resource type="Script" path="res://Scripts/Levels/level 1.gd" id="1_j8xq7"]
+[ext_resource type="Script" uid="uid://dssh6ne6cfrpi" path="res://Scripts/Levels/level 1.gd" id="1_j8xq7"]
 [ext_resource type="PackedScene" uid="uid://c75s2m6eic1vo" path="res://Scenes/Player/Player.tscn" id="2_xoa1m"]
 [ext_resource type="MeshLibrary" uid="uid://fq6she2myh7e" path="res://Scenes/Levels/Library.tres" id="3_a6omd"]
 [ext_resource type="PackedScene" uid="uid://u6rsr1posklm" path="res://Scenes/Shop/mage_npc.tscn" id="7_ameaq"]

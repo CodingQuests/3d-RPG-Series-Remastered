@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://k5iodkm5vt48"]
 
-[ext_resource type="Script" path="res://Scenes/Objects/Portals/Portal_VFX.gd" id="1_j2n8p"]
+[ext_resource type="Script" uid="uid://jadluf53yvp0" path="res://Scenes/Objects/Portals/Portal_VFX.gd" id="1_j2n8p"]
 [ext_resource type="Shader" uid="uid://jp4gooj7sx5q" path="res://Scenes/Objects/Portals/shaders/port1_shader.tres" id="2_5tkat"]
 [ext_resource type="Texture2D" uid="uid://d366sfa7wc7ov" path="res://Scenes/Objects/Portals/textures/T_VFX_lelu1_tiled.png" id="3_40ta3"]
 [ext_resource type="Texture2D" uid="uid://ck04u5i5ii1rp" path="res://Scenes/Objects/Portals/textures/T_portal_border1_mask.jpg" id="4_xlpjm"]
@@ -15,13 +15,13 @@ render_priority = 0
 shader = ExtResource("2_5tkat")
 shader_parameter/Color_Intensity = 3.0
 shader_parameter/Speed_X_Y = Vector2(-0.6, -0.3)
+shader_parameter/Main_Texture = ExtResource("3_40ta3")
 shader_parameter/Enable_Solid_Texture = false
-shader_parameter/Enable_Distortion = null
-shader_parameter/Distortion_Speed_Mask2 = null
+shader_parameter/Mask_Texture = ExtResource("4_xlpjm")
+shader_parameter/Enable_Distortion = false
+shader_parameter/Distortion_Speed_Mask2 = Vector2(0, 0)
 shader_parameter/Distortion_Divide_ = 50.0
 shader_parameter/Proximity_Fade = 0.5
-shader_parameter/Main_Texture = ExtResource("3_40ta3")
-shader_parameter/Mask_Texture = ExtResource("4_xlpjm")
 
 [sub_resource type="QuadMesh" id="QuadMesh_40jf8"]
 
@@ -31,10 +31,10 @@ shader = ExtResource("5_emxh8")
 shader_parameter/Color_Intensity = 5.0
 shader_parameter/Enable_Distortion = true
 shader_parameter/Distortion_Speed_Mask2 = Vector2(1, 1)
-shader_parameter/Distortion_Divide_ = 10.0
-shader_parameter/Proximity_Fade = 0.5
 shader_parameter/Distortion_Texture = ExtResource("3_40ta3")
+shader_parameter/Distortion_Divide_ = 10.0
 shader_parameter/Main_Texture = ExtResource("6_fk8sw")
+shader_parameter/Proximity_Fade = 0.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sn11j"]
 
@@ -50,6 +50,7 @@ emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 2.0
 emission_ring_radius = 2.0
 emission_ring_inner_radius = 1.0
+emission_ring_cone_angle = 90.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.2
 scale_max = 0.8

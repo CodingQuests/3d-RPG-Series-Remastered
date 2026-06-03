@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bflh1sux17m84"]
 
-[ext_resource type="Script" path="res://Scripts/Shop/shop_item.gd" id="1_4qecf"]
+[ext_resource type="Script" uid="uid://cdivxw2rnlw88" path="res://Scripts/Shop/shop_item.gd" id="1_4qecf"]
 [ext_resource type="Texture2D" uid="uid://ckfasjsi5krbd" path="res://Assets/16x16 RPG Item Pack/Item__00.png" id="2_7iaye"]
 
 [node name="shop_item" type="Panel"]

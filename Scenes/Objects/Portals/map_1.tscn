@@ -1,7 +1,7 @@
 [gd_scene load_steps=60 format=3 uid="uid://bnrawvwo1rwps"]
 
 [ext_resource type="Shader" uid="uid://jp4gooj7sx5q" path="res://Scenes/Objects/Portals/shaders/port1_shader.tres" id="1_ngije"]
-[ext_resource type="Script" path="res://Scenes/Objects/Portals/Portal_VFX.gd" id="1_qs73i"]
+[ext_resource type="Script" uid="uid://jadluf53yvp0" path="res://Scenes/Objects/Portals/Portal_VFX.gd" id="1_qs73i"]
 [ext_resource type="Texture2D" uid="uid://oyt8teoxa0gq" path="res://Scenes/Objects/Portals/textures/T_Vre1.PNG" id="3_1lukq"]
 [ext_resource type="Texture2D" uid="uid://d366sfa7wc7ov" path="res://Scenes/Objects/Portals/textures/T_VFX_lelu1_tiled.png" id="3_v6mk8"]
 [ext_resource type="Texture2D" uid="uid://cjec61p7mhjci" path="res://Scenes/Objects/Portals/textures/T_VFX_Ci52.png" id="5_f84rk"]
@@ -34,13 +34,13 @@ render_priority = 0
 shader = ExtResource("1_ngije")
 shader_parameter/Color_Intensity = 7.0
 shader_parameter/Speed_X_Y = Vector2(-0.5, 0.3)
+shader_parameter/Main_Texture = ExtResource("3_v6mk8")
 shader_parameter/Enable_Solid_Texture = false
-shader_parameter/Enable_Distortion = null
-shader_parameter/Distortion_Speed_Mask2 = null
+shader_parameter/Mask_Texture = ExtResource("5_f84rk")
+shader_parameter/Enable_Distortion = false
+shader_parameter/Distortion_Speed_Mask2 = Vector2(0, 0)
 shader_parameter/Distortion_Divide_ = 50.0
 shader_parameter/Proximity_Fade = 0.5
-shader_parameter/Main_Texture = ExtResource("3_v6mk8")
-shader_parameter/Mask_Texture = ExtResource("5_f84rk")
 
 [sub_resource type="QuadMesh" id="QuadMesh_40jf8"]
 
@@ -50,10 +50,10 @@ shader = ExtResource("15_1fcka")
 shader_parameter/Color_Intensity = 20.0
 shader_parameter/Enable_Distortion = true
 shader_parameter/Distortion_Speed_Mask2 = Vector2(1, 1)
-shader_parameter/Distortion_Divide_ = 10.0
-shader_parameter/Proximity_Fade = 0.5
 shader_parameter/Distortion_Texture = ExtResource("3_v6mk8")
+shader_parameter/Distortion_Divide_ = 10.0
 shader_parameter/Main_Texture = ExtResource("7_dsysa")
+shader_parameter/Proximity_Fade = 0.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sn11j"]
 
@@ -68,18 +68,17 @@ albedo_texture = ExtResource("3_1lukq")
 use_particle_trails = true
 
 [sub_resource type="Curve" id="Curve_ehgny"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_o0a0l"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_j273s"]
-min_value = -2.0
-max_value = 2.0
+_limits = [-2.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -95,6 +94,7 @@ emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 0.0
 emission_ring_radius = 1.1
 emission_ring_inner_radius = 1.1
+emission_ring_cone_angle = 90.0
 orbit_velocity_min = 0.2
 orbit_velocity_max = 0.2
 orbit_velocity_curve = SubResource("CurveXYZTexture_gnc6x")
@@ -119,6 +119,7 @@ emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 2.0
 emission_ring_radius = 2.0
 emission_ring_inner_radius = 1.0
+emission_ring_cone_angle = 90.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.2
 scale_max = 0.8
@@ -133,15 +134,15 @@ render_priority = 0
 shader = ExtResource("1_ngije")
 shader_parameter/Color_Intensity = 15.0
 shader_parameter/Speed_X_Y = Vector2(-0.5, 0.3)
+shader_parameter/Main_Texture = ExtResource("7_2yjns")
 shader_parameter/Enable_Solid_Texture = false
+shader_parameter/Mask_Texture = ExtResource("7_6do0g")
 shader_parameter/Enable_Distortion = true
 shader_parameter/Distortion_Speed_Mask2 = Vector2(0.1, 1)
-shader_parameter/Distortion_Divide_ = 5.0
-shader_parameter/Proximity_Fade = 0.5
-shader_parameter/Main_Texture = ExtResource("7_2yjns")
-shader_parameter/Mask_Texture = ExtResource("7_6do0g")
 shader_parameter/Distortion_Texture = ExtResource("6_tx63x")
+shader_parameter/Distortion_Divide_ = 5.0
 shader_parameter/Mask2_Texture = ExtResource("5_f84rk")
+shader_parameter/Proximity_Fade = 0.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_njctk"]
 render_priority = 0
@@ -157,14 +158,14 @@ render_priority = 0
 shader = ExtResource("1_ngije")
 shader_parameter/Color_Intensity = 0.0
 shader_parameter/Speed_X_Y = Vector2(-0.5, 0.3)
-shader_parameter/Enable_Solid_Texture = true
-shader_parameter/Enable_Distortion = false
-shader_parameter/Distortion_Speed_Mask2 = null
-shader_parameter/Distortion_Divide_ = 50.0
-shader_parameter/Proximity_Fade = 0.5
 shader_parameter/Main_Texture = ExtResource("11_kcdy8")
+shader_parameter/Enable_Solid_Texture = true
 shader_parameter/Mask_Texture = ExtResource("7_6do0g")
+shader_parameter/Enable_Distortion = false
+shader_parameter/Distortion_Speed_Mask2 = Vector2(0, 0)
+shader_parameter/Distortion_Divide_ = 50.0
 shader_parameter/Mask2_Texture = ExtResource("5_f84rk")
+shader_parameter/Proximity_Fade = 0.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ena4u"]
 render_priority = 0
@@ -172,18 +173,17 @@ shader = ExtResource("11_0gy3e")
 shader_parameter/Texture = ExtResource("12_6qi2j")
 
 [sub_resource type="Curve" id="Curve_tf67b"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_1dcgf"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_686n5"]
-min_value = -2.0
-max_value = 2.0
+_limits = [-2.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -205,6 +205,7 @@ emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 0.0
 emission_ring_radius = 1.0
 emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
 direction = Vector3(0, 0, 1)
 spread = 0.0
 initial_velocity_min = 0.5
@@ -229,10 +230,10 @@ shader = ExtResource("15_1fcka")
 shader_parameter/Color_Intensity = 1.0
 shader_parameter/Enable_Distortion = true
 shader_parameter/Distortion_Speed_Mask2 = Vector2(0, 1)
-shader_parameter/Distortion_Divide_ = 2.0
-shader_parameter/Proximity_Fade = 0.5
 shader_parameter/Distortion_Texture = ExtResource("16_7q1s4")
+shader_parameter/Distortion_Divide_ = 2.0
 shader_parameter/Main_Texture = ExtResource("17_rykq8")
+shader_parameter/Proximity_Fade = 0.5
 
 [sub_resource type="Curve" id="Curve_nnbak"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.212219, 1), 0.0, 0.0, 0, 0, Vector2(0.672026, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -271,10 +272,10 @@ shader = ExtResource("15_1fcka")
 shader_parameter/Color_Intensity = 3.0
 shader_parameter/Enable_Distortion = true
 shader_parameter/Distortion_Speed_Mask2 = Vector2(0, 1)
-shader_parameter/Distortion_Divide_ = 2.0
-shader_parameter/Proximity_Fade = 0.5
 shader_parameter/Distortion_Texture = ExtResource("16_7q1s4")
+shader_parameter/Distortion_Divide_ = 2.0
 shader_parameter/Main_Texture = ExtResource("18_syq7y")
+shader_parameter/Proximity_Fade = 0.5
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbbgc"]
 angle_min = -180.0

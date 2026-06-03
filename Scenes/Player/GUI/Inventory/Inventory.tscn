@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d4cyoim416nt3"]
 
-[ext_resource type="Script" path="res://Scenes/Player/GUI/Inventory/main.gd" id="1_g6ib7"]
-[ext_resource type="Script" path="res://Scenes/Player/GUI/Inventory/inventory_slot.gd" id="1_tggo1"]
+[ext_resource type="Script" uid="uid://bt0wfqnogw4oc" path="res://Scenes/Player/GUI/Inventory/main.gd" id="1_g6ib7"]
+[ext_resource type="Script" uid="uid://ckh6fn7jtkfg1" path="res://Scenes/Player/GUI/Inventory/inventory_slot.gd" id="1_tggo1"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3

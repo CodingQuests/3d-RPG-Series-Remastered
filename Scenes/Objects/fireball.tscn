@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://brxpisvx0jgjd"]
 
-[ext_resource type="Script" path="res://Scripts/Objects/fireball.gd" id="1_q88ys"]
+[ext_resource type="Script" uid="uid://dcm4qwhcivm4l" path="res://Scripts/Objects/fireball.gd" id="1_q88ys"]
 
 [sub_resource type="Gradient" id="Gradient_rkspu"]
 offsets = PackedFloat32Array(0, 0.19697, 0.873737)
@@ -10,7 +10,7 @@ colors = PackedColorArray(0.972549, 0, 0.309804, 1, 0, 0, 0, 1, 0.756863, 0.2745
 gradient = SubResource("Gradient_rkspu")
 
 [sub_resource type="Curve" id="Curve_vw5u8"]
-min_value = -1.0
+_limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, -0.406593), 0.0, 0.0, 0, 0, Vector2(0.207965, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.318681), 0.0, 0.0, 0, 0]
 point_count = 3
 
